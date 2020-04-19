@@ -13,19 +13,18 @@ class DiceImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final diceBloc = BlocProvider.of<DiceBloc>(context);
-    final double imageSize = 150.0;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: InkWell(
-        onTap: () => diceBloc.add(DiceClicked()),
-        child: Container(
-          child: ColorFiltered(
-            colorFilter: ColorFilter.mode(Colors.redAccent, BlendMode.color),
-            child: Image(
-              width: imageSize,
-              height: imageSize,
-              image: AssetImage(
-                '$imageContainerDirectory$imageFileName$number$imageExtension',
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: InkWell(
+          onTap: () => diceBloc.add(DiceClicked()),
+          child: Container(
+            child: ColorFiltered(
+              colorFilter: ColorFilter.mode(Colors.redAccent, BlendMode.color),
+              child: Image(
+                image: AssetImage(
+                  '$imageContainerDirectory$imageFileName$number$imageExtension',
+                ),
               ),
             ),
           ),
