@@ -9,14 +9,20 @@ part 'dice_state.dart';
 
 class DiceBloc extends Bloc<DiceEvent, DiceState> {
   @override
-  DiceState get initialState => DiceInitial(number: getRandomNumber());
+  DiceState get initialState => DiceInitial(
+        leftDiceNumber: getRandomNumber(),
+        rightDiceNumber: getRandomNumber(),
+      );
 
   @override
   Stream<DiceState> mapEventToState(
     DiceEvent event,
   ) async* {
     if (event is DiceClicked) {
-      yield DiceUpdated(number: getRandomNumber());
+      yield DiceUpdated(
+        leftDiceNumber: getRandomNumber(),
+        rightDiceNumber: getRandomNumber(),
+      );
     }
   }
 

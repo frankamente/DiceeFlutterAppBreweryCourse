@@ -5,17 +5,19 @@ abstract class DiceState extends Equatable {
 }
 
 class DiceInitial extends DiceState {
-  final int number;
+  final int leftDiceNumber;
+  final int rightDiceNumber;
 
-  DiceInitial({this.number});
+  DiceInitial({this.leftDiceNumber, this.rightDiceNumber});
   @override
-  List<Object> get props => [number];
+  List<Object> get props => [leftDiceNumber, rightDiceNumber];
 }
 
 class DiceUpdated extends DiceState {
-  final int number;
+  final int leftDiceNumber;
+  final int rightDiceNumber;
 
-  DiceUpdated({this.number});
+  DiceUpdated({this.leftDiceNumber, this.rightDiceNumber});
   @override
-  List<Object> get props => [number];
+  List<Object> get props => [leftDiceNumber, rightDiceNumber];
 }
