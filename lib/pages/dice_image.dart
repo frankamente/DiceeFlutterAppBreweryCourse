@@ -19,11 +19,14 @@ class DiceImage extends StatelessWidget {
       child: InkWell(
         onTap: () => diceBloc.add(DiceClicked()),
         child: Container(
-          child: Image(
-            width: imageSize,
-            height: imageSize,
-            image: AssetImage(
-              '$imageContainerDirectory$imageFileName$number$imageExtension',
+          child: ColorFiltered(
+            colorFilter: ColorFilter.mode(Colors.redAccent, BlendMode.color),
+            child: Image(
+              width: imageSize,
+              height: imageSize,
+              image: AssetImage(
+                '$imageContainerDirectory$imageFileName$number$imageExtension',
+              ),
             ),
           ),
         ),
